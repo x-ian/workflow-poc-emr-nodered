@@ -2,7 +2,10 @@
     "name": "workflow-poc-emr-nodered",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-dashboard": "2.19.4",
+        "node-red-contrib-blockly": "1.1.0"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows_ChristiansMBP2.fritz.box.json",
