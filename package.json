@@ -7,8 +7,8 @@
     },
     "node-red": {
         "settings": {
-            "flowFile": "flows_ChristiansMBP2.fritz.box.json",
-            "credentialsFile": "flows_ChristiansMBP2.fritz.box_cred.json"
+            "flowFile": "flows_careflow.json",
+            "credentialsFile": "flows_careflow_cred.json"
         }
     }
 }
