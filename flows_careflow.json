@@ -98,13 +98,6 @@
         "info": ""
     },
     {
-        "id": "2d4060a6.92c72",
-        "type": "tab",
-        "label": "ART Consultation",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "a1643e52.69ec58",
         "type": "subflow",
         "name": "Patient Identification",
@@ -14808,32 +14801,6 @@
         "info": "<h1>Continue current regimen</h1>"
     },
     {
-        "id": "a164c224.32f0f",
-        "type": "patients-queue",
-        "z": "2d4060a6.92c72",
-        "name": "",
-        "queueName": "all",
-        "queueDateFilter": "",
-        "label": "",
-        "encounterType": "",
-        "x": 120,
-        "y": 40,
-        "wires": [
-            [
-                "77fd8415.dcd734"
-            ]
-        ]
-    },
-    {
-        "id": "48c54fbd.f1068",
-        "type": "end-flow",
-        "z": "2d4060a6.92c72",
-        "name": "",
-        "x": 620,
-        "y": 280,
-        "wires": []
-    },
-    {
         "id": "d326fb80.296e88",
         "type": "function",
         "z": "31f002eb.4ebf6e",
@@ -14929,95 +14896,6 @@
         "wires": [
             [
                 "1c78347b.aa760c"
-            ]
-        ]
-    },
-    {
-        "id": "8d556bb0.44d428",
-        "type": "question-select",
-        "z": "2d4060a6.92c72",
-        "name": "Side Effects",
-        "label": "",
-        "scope": "encounter",
-        "key": "",
-        "behavior": "single",
-        "devices": [
-            {
-                "sid": "N"
-            },
-            {
-                "sid": "Y"
-            }
-        ],
-        "x": 630,
-        "y": 160,
-        "wires": [
-            [
-                "71e0ad8f.dc7ab4"
-            ]
-        ]
-    },
-    {
-        "id": "1fe27307.958dbd",
-        "type": "question-primitive",
-        "z": "2d4060a6.92c72",
-        "name": "Next Appointment",
-        "label": "",
-        "scope": "encounter",
-        "key": "",
-        "datatype": "date",
-        "optional": false,
-        "x": 650,
-        "y": 240,
-        "wires": [
-            [
-                "48c54fbd.f1068"
-            ]
-        ]
-    },
-    {
-        "id": "71e0ad8f.dc7ab4",
-        "type": "question-select",
-        "z": "2d4060a6.92c72",
-        "name": "ART Regimen",
-        "label": "",
-        "scope": "encounter",
-        "key": "",
-        "behavior": "single",
-        "devices": [
-            {
-                "sid": "A1a - TDF + 3TC + DTG (1st Line)"
-            },
-            {
-                "sid": "A1b - TDF + 3TC + EFV (1st Line)"
-            },
-            {
-                "sid": "A1c - ABC + 3TC + DTG (1st Line)"
-            },
-            {
-                "sid": "A1d - AZT + 3TC + EFV (1st Line)"
-            },
-            {
-                "sid": "A2a -  AZT + 3TC + DTG (2nd Line)"
-            },
-            {
-                "sid": "A2b - AZT + 3TC + LPV/r (2nd Line)"
-            },
-            {
-                "sid": "A2c - AZT + 3TC + ATV/r (2nd Line)"
-            },
-            {
-                "sid": "A2d - TDF + 3TC + LPV/r (2nd Line)"
-            },
-            {
-                "sid": "A2e - TDF + 3TC + DRV/r (2nd Line)"
-            }
-        ],
-        "x": 640,
-        "y": 200,
-        "wires": [
-            [
-                "1fe27307.958dbd"
             ]
         ]
     },
@@ -15126,20 +15004,6 @@
         "y": 140,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "77fd8415.dcd734",
-        "type": "subflow:8597eba8.d8b1e8",
-        "z": "2d4060a6.92c72",
-        "name": "VL test",
-        "env": [],
-        "x": 260,
-        "y": 180,
-        "wires": [
-            [
-                "8d556bb0.44d428"
-            ]
         ]
     },
     {
