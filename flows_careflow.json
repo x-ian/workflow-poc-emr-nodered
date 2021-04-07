@@ -56,27 +56,6 @@
         "info": ""
     },
     {
-        "id": "94de8707.0e2198",
-        "type": "tab",
-        "label": "Test",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "e720fdd.1c9ee",
-        "type": "tab",
-        "label": "OpenMRS RefApp Vitals Full",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "14758230.47ea4e",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "128d8803.8b8dd8",
         "type": "subflow",
         "name": "VL order",
@@ -2169,7 +2148,7 @@
         "encounterType": "second",
         "rowcontent": "'<option class=emr-select-option value=' + \"\" + key + '>' \n+ entry.givenname + \" - \" \n+ entry.Age_text + \" - \"\n+ entry['Health ID'] \n+ '</option>'",
         "x": 140,
-        "y": 560,
+        "y": 540,
         "wires": [
             [
                 "4e0df014.ab708"
@@ -2309,7 +2288,7 @@
         "id": "75931b8b.30a314",
         "type": "careflow",
         "z": "2297acf6.e98c64",
-        "careflow_runtime": "7bf38ac1.088444",
+        "careflow_runtime": "fa608b60.1bd338",
         "x": 580,
         "y": 40,
         "wires": []
@@ -3038,46 +3017,6 @@
         "wires": []
     },
     {
-        "id": "3925ec5b.cc1b64",
-        "type": "find-patient",
-        "z": "94de8707.0e2198",
-        "name": "",
-        "includename": "",
-        "includeidentifier": "",
-        "program": "",
-        "expression": "",
-        "rowcontent": "",
-        "x": 140,
-        "y": 160,
-        "wires": [
-            [
-                "8db99889.8fd868"
-            ]
-        ]
-    },
-    {
-        "id": "8db99889.8fd868",
-        "type": "take-photo",
-        "z": "94de8707.0e2198",
-        "name": "",
-        "x": 320,
-        "y": 160,
-        "wires": [
-            [
-                "591d9bdb.aa4d24"
-            ]
-        ]
-    },
-    {
-        "id": "591d9bdb.aa4d24",
-        "type": "end-flow",
-        "z": "94de8707.0e2198",
-        "name": "",
-        "x": 500,
-        "y": 160,
-        "wires": []
-    },
-    {
         "id": "e9738606.f4fe88",
         "type": "subflow:3073679b.a6a2a8",
         "z": "af77e3e8.e89f3",
@@ -3125,253 +3064,6 @@
         ]
     },
     {
-        "id": "2a327b39.bc8224",
-        "type": "patients-queue",
-        "z": "e720fdd.1c9ee",
-        "name": "Checked in Patients",
-        "queueName": "all",
-        "queueDateFilter": "",
-        "label": "",
-        "encounterType": "",
-        "x": 230,
-        "y": 80,
-        "wires": [
-            [
-                "937cc2de.c4aca"
-            ]
-        ]
-    },
-    {
-        "id": "2a9c481e.8dc158",
-        "type": "end-flow",
-        "z": "e720fdd.1c9ee",
-        "name": "",
-        "x": 660,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "97dd765e.7a0248",
-        "type": "question-primitive",
-        "z": "e720fdd.1c9ee",
-        "name": "MUAC",
-        "label": "",
-        "scope": "encounter",
-        "key": "",
-        "datatype": "integer",
-        "optional": "",
-        "x": 230,
-        "y": 400,
-        "wires": [
-            [
-                "2a9c481e.8dc158"
-            ]
-        ]
-    },
-    {
-        "id": "3c942ee5.31c1a2",
-        "type": "function",
-        "z": "e720fdd.1c9ee",
-        "name": "Calc BMI",
-        "func": "currentEncounter.bmi = \n  10000 *\n  Number(currentEncounter.Weight) /\n  (Number(currentEncounter.Height) * Number(currentEncounter.Height));",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 540,
-        "y": 160,
-        "wires": [
-            [
-                "e9aefa82.2eefa8"
-            ]
-        ]
-    },
-    {
-        "id": "712149b5.5f67f8",
-        "type": "switch",
-        "z": "e720fdd.1c9ee",
-        "name": "under 5?",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "no",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "yes",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 380,
-        "y": 160,
-        "wires": [
-            [
-                "3c942ee5.31c1a2"
-            ],
-            [
-                "e9aefa82.2eefa8"
-            ]
-        ]
-    },
-    {
-        "id": "e9aefa82.2eefa8",
-        "type": "question-primitive",
-        "z": "e720fdd.1c9ee",
-        "name": "Temperature",
-        "label": "",
-        "scope": "encounter",
-        "key": "",
-        "datatype": "integer",
-        "optional": "",
-        "x": 250,
-        "y": 200,
-        "wires": [
-            [
-                "2b78db1f.b3bad4"
-            ]
-        ]
-    },
-    {
-        "id": "2b78db1f.b3bad4",
-        "type": "question-primitive",
-        "z": "e720fdd.1c9ee",
-        "name": "Pulse",
-        "label": "",
-        "scope": "encounter",
-        "key": "",
-        "datatype": "integer",
-        "optional": "",
-        "x": 230,
-        "y": 240,
-        "wires": [
-            [
-                "ee753259.58701"
-            ]
-        ]
-    },
-    {
-        "id": "ee753259.58701",
-        "type": "question-primitive",
-        "z": "e720fdd.1c9ee",
-        "name": "Respiratory Rate",
-        "label": "",
-        "scope": "encounter",
-        "key": "",
-        "datatype": "integer",
-        "optional": "",
-        "x": 270,
-        "y": 280,
-        "wires": [
-            [
-                "76d50390.69c87c"
-            ]
-        ]
-    },
-    {
-        "id": "fb98787d.304e88",
-        "type": "question-primitive",
-        "z": "e720fdd.1c9ee",
-        "name": "Oxygen saturation",
-        "label": "",
-        "scope": "encounter",
-        "key": "",
-        "datatype": "integer",
-        "optional": "",
-        "x": 270,
-        "y": 360,
-        "wires": [
-            [
-                "f08df5ca.d0dc48"
-            ]
-        ]
-    },
-    {
-        "id": "f08df5ca.d0dc48",
-        "type": "switch",
-        "z": "e720fdd.1c9ee",
-        "name": "under 13?",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "no",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "yes",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 460,
-        "y": 360,
-        "wires": [
-            [
-                "2a9c481e.8dc158"
-            ],
-            [
-                "97dd765e.7a0248"
-            ]
-        ]
-    },
-    {
-        "id": "2601305b.036f8",
-        "type": "find-patient",
-        "z": "e720fdd.1c9ee",
-        "name": "",
-        "includename": "",
-        "includeidentifier": "",
-        "program": "",
-        "expression": "",
-        "rowcontent": "",
-        "x": 220,
-        "y": 40,
-        "wires": [
-            [
-                "937cc2de.c4aca"
-            ]
-        ]
-    },
-    {
-        "id": "937cc2de.c4aca",
-        "type": "height-weight",
-        "z": "e720fdd.1c9ee",
-        "name": "",
-        "label": "",
-        "keyHeight": "Height",
-        "keyWeight": "Weight",
-        "x": 260,
-        "y": 120,
-        "wires": [
-            [
-                "712149b5.5f67f8"
-            ]
-        ]
-    },
-    {
-        "id": "76d50390.69c87c",
-        "type": "blood-pressure",
-        "z": "e720fdd.1c9ee",
-        "name": "",
-        "label": "",
-        "key": "bp",
-        "x": 260,
-        "y": 320,
-        "wires": [
-            [
-                "fb98787d.304e88"
-            ]
-        ]
-    },
-    {
         "id": "ca17b30a.bbaf1",
         "type": "find-patient",
         "z": "5d901e35.d089c",
@@ -3387,55 +3079,6 @@
             [
                 "d9e76286.a465c"
             ]
-        ]
-    },
-    {
-        "id": "9f4671cd.afb55",
-        "type": "find-patient",
-        "z": "14758230.47ea4e",
-        "name": "",
-        "includename": "",
-        "includeidentifier": "",
-        "program": "",
-        "expression": "",
-        "rowcontent": "",
-        "x": 200,
-        "y": 120,
-        "wires": [
-            [
-                "699dcd95.ab8394"
-            ]
-        ]
-    },
-    {
-        "id": "3c517d6f.8944e2",
-        "type": "summary-interactive",
-        "z": "14758230.47ea4e",
-        "name": "",
-        "label": "",
-        "outputs": 1,
-        "buttons": [
-            {
-                "name": "",
-                "desc": "",
-                "model": ""
-            }
-        ],
-        "x": 330,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "699dcd95.ab8394",
-        "type": "summary-chart-art",
-        "z": "14758230.47ea4e",
-        "name": "",
-        "x": 430,
-        "y": 80,
-        "wires": [
-            []
         ]
     },
     {
