@@ -70,6 +70,13 @@
         "info": ""
     },
     {
+        "id": "14758230.47ea4e",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "128d8803.8b8dd8",
         "type": "subflow",
         "name": "VL order",
@@ -2155,17 +2162,17 @@
         "id": "85e4ecd2.055be",
         "type": "patients-queue",
         "z": "2297acf6.e98c64",
-        "name": "Queue #1",
+        "name": "Waiting for Tests",
         "queueName": "first",
         "queueDateFilter": "",
         "label": "",
         "encounterType": "second",
         "rowcontent": "'<option class=emr-select-option value=' + \"\" + key + '>' \n+ entry.givenname + \" - \" \n+ entry.Age_text + \" - \"\n+ entry['Health ID'] \n+ '</option>'",
-        "x": 120,
+        "x": 140,
         "y": 560,
         "wires": [
             [
-                "322b709e.ee2fe"
+                "4e0df014.ab708"
             ]
         ]
     },
@@ -2173,17 +2180,17 @@
         "id": "f7b8d06e.c27be",
         "type": "patients-queue",
         "z": "2297acf6.e98c64",
-        "name": "Queue #2",
+        "name": "Waiting for Results",
         "queueName": "second",
         "queueDateFilter": "",
         "label": "",
         "encounterType": "third",
         "rowcontent": "'<option class=emr-select-option value=' + \"\" + key + '>' \n+ entry.givenname + \" - \" \n+ entry.Age_text + \" - \"\n+ entry['Health ID'] \n+ '</option>'",
-        "x": 120,
+        "x": 150,
         "y": 600,
         "wires": [
             [
-                "958eabf3.adbdf8"
+                "9b0c01e4.3d6b6"
             ]
         ]
     },
@@ -2192,7 +2199,7 @@
         "type": "create-encounter-end",
         "z": "2297acf6.e98c64",
         "name": "",
-        "x": 410,
+        "x": 530,
         "y": 560,
         "wires": []
     },
@@ -2201,7 +2208,7 @@
         "type": "create-encounter-end",
         "z": "2297acf6.e98c64",
         "name": "",
-        "x": 410,
+        "x": 530,
         "y": 600,
         "wires": []
     },
@@ -2294,7 +2301,7 @@
         "type": "end-flow",
         "z": "2297acf6.e98c64",
         "name": "",
-        "x": 360,
+        "x": 340,
         "y": 640,
         "wires": []
     },
@@ -2304,7 +2311,7 @@
         "z": "2297acf6.e98c64",
         "careflow_runtime": "7bf38ac1.088444",
         "x": 580,
-        "y": 60,
+        "y": 40,
         "wires": []
     },
     {
@@ -3379,6 +3386,111 @@
         "wires": [
             [
                 "d9e76286.a465c"
+            ]
+        ]
+    },
+    {
+        "id": "9f4671cd.afb55",
+        "type": "find-patient",
+        "z": "14758230.47ea4e",
+        "name": "",
+        "includename": "",
+        "includeidentifier": "",
+        "program": "",
+        "expression": "",
+        "rowcontent": "",
+        "x": 200,
+        "y": 120,
+        "wires": [
+            [
+                "699dcd95.ab8394"
+            ]
+        ]
+    },
+    {
+        "id": "3c517d6f.8944e2",
+        "type": "summary-interactive",
+        "z": "14758230.47ea4e",
+        "name": "",
+        "label": "",
+        "outputs": 1,
+        "buttons": [
+            {
+                "name": "",
+                "desc": "",
+                "model": ""
+            }
+        ],
+        "x": 330,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "699dcd95.ab8394",
+        "type": "summary-chart-art",
+        "z": "14758230.47ea4e",
+        "name": "",
+        "x": 430,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9b0c01e4.3d6b6",
+        "type": "question-select",
+        "z": "2297acf6.e98c64",
+        "name": "Result",
+        "label": "",
+        "scope": "encounter",
+        "key": "",
+        "behavior": "single",
+        "devices": [
+            {
+                "sid": "positive"
+            },
+            {
+                "sid": "negative"
+            },
+            {
+                "sid": "inconclusive"
+            },
+            {
+                "sid": "invalid / unknown"
+            }
+        ],
+        "x": 330,
+        "y": 600,
+        "wires": [
+            [
+                "958eabf3.adbdf8"
+            ]
+        ]
+    },
+    {
+        "id": "4e0df014.ab708",
+        "type": "question-select",
+        "z": "2297acf6.e98c64",
+        "name": "Tested",
+        "label": "",
+        "scope": "encounter",
+        "key": "",
+        "behavior": "single",
+        "devices": [
+            {
+                "sid": "yes"
+            },
+            {
+                "sid": "no"
+            }
+        ],
+        "x": 330,
+        "y": 560,
+        "wires": [
+            [
+                "322b709e.ee2fe"
             ]
         ]
     }
