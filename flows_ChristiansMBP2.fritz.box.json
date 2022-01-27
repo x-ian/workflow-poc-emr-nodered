@@ -5833,7 +5833,7 @@
         "type": "careflow",
         "z": "7bb2ebe7.96f244",
         "careflow_runtime": "e91820d6.35e49",
-        "x": 980,
+        "x": 960,
         "y": 40,
         "wires": []
     },
