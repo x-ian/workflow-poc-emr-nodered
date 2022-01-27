@@ -924,7 +924,7 @@
         "id": "7bf38ac1.088444",
         "type": "careflow-config",
         "environment": "xian",
-        "runtime_flow_path": "/Users/xian/projects/data-first-emr/workflow-poc-emr/resources/node-red-flows.json"
+        "runtime_flow_path": "/Users/xian/projects/data-first-emr/care-bricks/resources/node-red-flows.json"
     },
     {
         "id": "2699ecc2.a7b384",
